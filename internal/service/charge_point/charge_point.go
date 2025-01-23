@@ -111,3 +111,37 @@ func (srv Service) UpdateChargePointDetails(ctx context.Context, req *rpc.Update
 
 	return res, nil
 }
+
+func (srv Service) GetChargePoints(ctx context.Context, req *rpc.GetChargePointsReq) (*rpc.GetChargePointsResp, error) {
+	cps, err := srv.chargePoint.GetChargePoints(ctx, req.EntityCode)
+	if err != nil {
+		return nil, err
+	}
+
+	exCps := []*rpc.ChargePoint{}
+	for _, cp := range cps {
+		resChargePoint := &rpc.ChargePoint{
+			Id:                      cp.ID,
+			EntityCode:              cp.EntityCode,
+			ChargePointIdentifier:   cp.ChargePointIdentifier,
+			ChargePointVendor:       cp.ChargePointVendor,
+			ChargePointModel:        cp.ChargePointModel,
+			ChargePointSerialNumber: cp.ChargeBoxSerialNumber,
+			ChargeBoxSerialNumber:   cp.ChargeBoxSerialNumber,
+			Iccid:                   cp.Iccid,
+			Imsi:                    cp.Imsi,
+			MeterType:               cp.MeterType,
+			MeterSerialNumber:       cp.MeterSerialNumber,
+			FirmwareVersion:         cp.FirmwareVersion,
+			ConnectorCount:          cp.ConnectorCount,
+			OcppProtocol:            cp.OcppProtocol,
+		}
+		exCps = append(exCps, resChargePoint)
+	}
+
+	res := &rpc.GetChargePointsResp{
+		ChargePoints: exCps,
+	}
+
+	return res, nil
+}

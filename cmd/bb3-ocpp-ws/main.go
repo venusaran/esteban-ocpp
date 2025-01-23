@@ -16,6 +16,8 @@ import (
 	operationsrv "github.com/Beep-Technologies/beepbeep3-ocpp/internal/service/operation"
 	statusnotificationsrv "github.com/Beep-Technologies/beepbeep3-ocpp/internal/service/status_notification"
 	transactionsrv "github.com/Beep-Technologies/beepbeep3-ocpp/internal/service/transaction"
+	usersrv "github.com/Beep-Technologies/beepbeep3-ocpp/internal/service/user"
+	userTxsrv "github.com/Beep-Technologies/beepbeep3-ocpp/internal/service/user_transaction"
 
 	"github.com/Beep-Technologies/beepbeep3-ocpp/pkg/logger"
 	ginzap "github.com/gin-contrib/zap"
@@ -86,6 +88,8 @@ func main() {
 	chargePointService := chargepointsrv.NewService(ORM)
 	transactionService := transactionsrv.NewService(ORM)
 	statusNotificationService := statusnotificationsrv.NewService(ORM)
+	userService := usersrv.NewService(ORM)
+	userTxService := userTxsrv.NewService(ORM)
 
 	ocpp16CentralSystem := ocpp16cs.NewOCPP16CentralSystem(
 		l,
@@ -109,10 +113,25 @@ func main() {
 		statusNotificationService,
 	)
 
+	transactionController := controller.NewTransactionAPI(
+		chargePointService, statusNotificationService, transactionService,
+	)
+
+	userController := controller.NewUserAPI(
+		userService,
+	)
+
+	userTxController := controller.NewUserTxAPI(
+		userTxService,
+	)
+
 	rt := router.NewRouter(
 		ocppWebSocketServer,
 		chargePointController,
 		operationController,
+		transactionController,
+		userController,
+		userTxController,
 	)
 
 	// set up gin

@@ -564,6 +564,167 @@ func (m *StopTransactionResp) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_StopTransactionResp proto.InternalMessageInfo
 
+type GetTransactionsReq struct {
+	Limit                int32    `protobuf:"varint,1,opt,name=limit,proto3" json:"limit,omitempty"`
+	Offset               int32    `protobuf:"varint,2,opt,name=offset,proto3" json:"offset,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTransactionsReq) Reset()         { *m = GetTransactionsReq{} }
+func (m *GetTransactionsReq) String() string { return proto.CompactTextString(m) }
+func (*GetTransactionsReq) ProtoMessage()    {}
+func (*GetTransactionsReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0b72849cf10e9c77, []int{13}
+}
+func (m *GetTransactionsReq) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTransactionsReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTransactionsReq.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTransactionsReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTransactionsReq.Merge(m, src)
+}
+func (m *GetTransactionsReq) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTransactionsReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTransactionsReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTransactionsReq proto.InternalMessageInfo
+
+type GetTransactionsResp struct {
+	Transactions         []*Transaction `protobuf:"bytes,1,rep,name=transactions,proto3" json:"transactions"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *GetTransactionsResp) Reset()         { *m = GetTransactionsResp{} }
+func (m *GetTransactionsResp) String() string { return proto.CompactTextString(m) }
+func (*GetTransactionsResp) ProtoMessage()    {}
+func (*GetTransactionsResp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0b72849cf10e9c77, []int{14}
+}
+func (m *GetTransactionsResp) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTransactionsResp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTransactionsResp.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTransactionsResp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTransactionsResp.Merge(m, src)
+}
+func (m *GetTransactionsResp) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTransactionsResp) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTransactionsResp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTransactionsResp proto.InternalMessageInfo
+
+type GetTransactionReq struct {
+	Id                   int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetTransactionReq) Reset()         { *m = GetTransactionReq{} }
+func (m *GetTransactionReq) String() string { return proto.CompactTextString(m) }
+func (*GetTransactionReq) ProtoMessage()    {}
+func (*GetTransactionReq) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0b72849cf10e9c77, []int{15}
+}
+func (m *GetTransactionReq) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTransactionReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTransactionReq.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTransactionReq) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTransactionReq.Merge(m, src)
+}
+func (m *GetTransactionReq) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTransactionReq) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTransactionReq.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTransactionReq proto.InternalMessageInfo
+
+type GetTransactionResp struct {
+	Transaction          *Transaction `protobuf:"bytes,1,opt,name=transaction,proto3" json:"transaction"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *GetTransactionResp) Reset()         { *m = GetTransactionResp{} }
+func (m *GetTransactionResp) String() string { return proto.CompactTextString(m) }
+func (*GetTransactionResp) ProtoMessage()    {}
+func (*GetTransactionResp) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0b72849cf10e9c77, []int{16}
+}
+func (m *GetTransactionResp) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *GetTransactionResp) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_GetTransactionResp.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *GetTransactionResp) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTransactionResp.Merge(m, src)
+}
+func (m *GetTransactionResp) XXX_Size() int {
+	return m.Size()
+}
+func (m *GetTransactionResp) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetTransactionResp.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetTransactionResp proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*Transaction)(nil), "ocpp.Transaction")
 	proto.RegisterType((*GetOngoingTransactionReq)(nil), "ocpp.GetOngoingTransactionReq")
@@ -578,56 +739,64 @@ func init() {
 	proto.RegisterType((*AbnormalStopTransactionResp)(nil), "ocpp.AbnormalStopTransactionResp")
 	proto.RegisterType((*StopTransactionReq)(nil), "ocpp.StopTransactionReq")
 	proto.RegisterType((*StopTransactionResp)(nil), "ocpp.StopTransactionResp")
+	proto.RegisterType((*GetTransactionsReq)(nil), "ocpp.GetTransactionsReq")
+	proto.RegisterType((*GetTransactionsResp)(nil), "ocpp.GetTransactionsResp")
+	proto.RegisterType((*GetTransactionReq)(nil), "ocpp.GetTransactionReq")
+	proto.RegisterType((*GetTransactionResp)(nil), "ocpp.GetTransactionResp")
 }
 
 func init() { proto.RegisterFile("transactions.proto", fileDescriptor_0b72849cf10e9c77) }
 
 var fileDescriptor_0b72849cf10e9c77 = []byte{
-	// 692 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x55, 0xdd, 0x6e, 0xd3, 0x4a,
-	0x10, 0x3e, 0x4e, 0x9b, 0x9c, 0x64, 0x7c, 0xda, 0xb4, 0x9b, 0xe6, 0xd4, 0xed, 0x91, 0xe2, 0x36,
-	0xd2, 0x91, 0x02, 0x82, 0x14, 0x51, 0x09, 0x09, 0x81, 0x40, 0x4d, 0x91, 0xa0, 0x17, 0x08, 0xd8,
-	0x56, 0x5c, 0xf0, 0x23, 0x6b, 0x63, 0x6f, 0xdd, 0x95, 0x1a, 0xaf, 0xb1, 0xb7, 0x48, 0xbc, 0x08,
-	0x2f, 0xc1, 0x8b, 0x54, 0x5c, 0x71, 0xc1, 0xb5, 0x45, 0x7b, 0x85, 0xfc, 0x14, 0x68, 0xc7, 0xfd,
-	0x71, 0xec, 0x94, 0x4a, 0xa8, 0x48, 0x5c, 0xc5, 0xf3, 0x7d, 0x3b, 0xe3, 0x6f, 0x27, 0xf3, 0x8d,
-	0x81, 0xa8, 0x88, 0x05, 0x31, 0x73, 0x95, 0x90, 0x41, 0xdc, 0x0f, 0x23, 0xa9, 0x24, 0x99, 0x96,
-	0x6e, 0x18, 0x2e, 0xdf, 0xf4, 0x85, 0xda, 0x3b, 0x18, 0xf6, 0x5d, 0x39, 0x5a, 0xf3, 0xa5, 0x2f,
-	0xd7, 0x90, 0x1c, 0x1e, 0xec, 0x62, 0x84, 0x01, 0x3e, 0x65, 0x49, 0xdd, 0xcf, 0xd3, 0x60, 0xee,
-	0x9c, 0xd7, 0x22, 0xff, 0x42, 0x45, 0x78, 0x96, 0xb1, 0x62, 0xf4, 0xaa, 0x83, 0x5a, 0x9a, 0xd8,
-	0x15, 0xe1, 0xd1, 0x8a, 0xf0, 0xc8, 0x3d, 0x68, 0xba, 0x7b, 0x2c, 0xf2, 0xb9, 0x13, 0x4a, 0x11,
-	0x28, 0x47, 0x78, 0x56, 0x05, 0x0f, 0xb5, 0xd2, 0xc4, 0x2e, 0x52, 0x74, 0x26, 0x03, 0x9e, 0xeb,
-	0x78, 0xcb, 0x23, 0xeb, 0xf0, 0x8f, 0x2b, 0x83, 0x80, 0xbb, 0x4a, 0x46, 0x3a, 0x73, 0x0a, 0x33,
-	0xe7, 0xd2, 0xc4, 0x1e, 0xc3, 0xa9, 0x79, 0x16, 0x6d, 0x79, 0x64, 0x15, 0x6a, 0xc2, 0x73, 0x14,
-	0xf3, 0xad, 0xe9, 0x15, 0xa3, 0xd7, 0x18, 0x40, 0x9a, 0xd8, 0x27, 0x08, 0xad, 0x0a, 0x6f, 0x87,
-	0xf9, 0xc4, 0x86, 0x6a, 0xac, 0x98, 0xe2, 0x56, 0x15, 0x4f, 0x34, 0xd2, 0xc4, 0xce, 0x00, 0x9a,
-	0xfd, 0x90, 0x87, 0x30, 0x17, 0xf1, 0x91, 0x54, 0xdc, 0x11, 0x81, 0x50, 0x82, 0x29, 0xee, 0x59,
-	0xb5, 0x15, 0xa3, 0x57, 0x1f, 0x2c, 0xa4, 0x89, 0x5d, 0xe2, 0x68, 0x33, 0x43, 0xb6, 0x4e, 0x01,
-	0x72, 0x1f, 0x9a, 0xb1, 0x62, 0x91, 0x72, 0x94, 0x18, 0xf1, 0x58, 0xb1, 0x51, 0x68, 0xfd, 0x8d,
-	0xef, 0xc2, 0x6b, 0x17, 0x28, 0x3a, 0x8b, 0xc0, 0xce, 0x69, 0x4c, 0xee, 0xc2, 0x6c, 0xac, 0x64,
-	0x98, 0x4b, 0xae, 0x63, 0x32, 0x49, 0x13, 0xbb, 0xc0, 0xd0, 0x19, 0x1d, 0x9f, 0xa7, 0x6e, 0xc0,
-	0x7c, 0x56, 0x7d, 0xc4, 0x15, 0x8f, 0x9c, 0xf7, 0x6c, 0xff, 0x80, 0x5b, 0x0d, 0xec, 0x5b, 0x3b,
-	0x4d, 0xec, 0x32, 0x49, 0x33, 0x35, 0x4f, 0x35, 0xf2, 0x52, 0x03, 0xe4, 0x01, 0xcc, 0xe1, 0x3b,
-	0xf2, 0x15, 0x00, 0x2b, 0xe0, 0xe5, 0x8b, 0x1c, 0x45, 0x45, 0xb9, 0xfc, 0x5b, 0x60, 0xe2, 0x99,
-	0x88, 0xb3, 0x58, 0x06, 0x96, 0x89, 0xd2, 0x9b, 0x69, 0x62, 0xe7, 0x61, 0x0a, 0x3a, 0xa0, 0xf8,
-	0xdc, 0xfd, 0x68, 0x80, 0xf5, 0x98, 0xab, 0x67, 0x81, 0x2f, 0x45, 0xe0, 0xe7, 0xc6, 0x8a, 0xf2,
-	0x77, 0xc4, 0x06, 0x93, 0x07, 0x4a, 0xa8, 0x0f, 0x8e, 0x2b, 0x3d, 0x8e, 0x23, 0xd6, 0xa0, 0x90,
-	0x41, 0x9b, 0xd2, 0xe3, 0xe4, 0x0e, 0x2c, 0x16, 0xe6, 0x48, 0x93, 0xbb, 0x82, 0x47, 0x38, 0x6a,
-	0x0d, 0xda, 0x1e, 0x9b, 0xaa, 0x53, 0x92, 0xac, 0x4e, 0x9a, 0xae, 0xb1, 0x59, 0xea, 0x7e, 0x32,
-	0x60, 0xe9, 0x02, 0x61, 0x71, 0x48, 0x9e, 0x40, 0x4b, 0x66, 0x8c, 0x93, 0xb3, 0x15, 0x2a, 0xac,
-	0x0f, 0x16, 0xd3, 0xc4, 0x9e, 0x44, 0x53, 0x22, 0x4b, 0xd5, 0xc8, 0x23, 0x30, 0xf3, 0x15, 0xb4,
-	0x6c, 0xf3, 0xf6, 0x7c, 0x5f, 0x1b, 0xb3, 0x9f, 0x3b, 0x97, 0x75, 0x31, 0x5f, 0x2c, 0x1f, 0x74,
-	0xbf, 0x1a, 0xb0, 0xb0, 0x19, 0x71, 0xa6, 0xf8, 0x9f, 0xd3, 0x42, 0x72, 0x6d, 0x82, 0x95, 0xb4,
-	0x31, 0xeb, 0x65, 0xd3, 0xb4, 0xcf, 0x9c, 0x8b, 0xbe, 0x3c, 0x71, 0x6b, 0xf7, 0x2d, 0xb4, 0x27,
-	0xdc, 0x2a, 0x0e, 0x8b, 0x5d, 0x33, 0x7e, 0xad, 0x6b, 0x2f, 0xa0, 0xb5, 0x8d, 0xf6, 0x1b, 0xef,
-	0xd9, 0xec, 0xf9, 0x42, 0xc3, 0x45, 0x76, 0x7d, 0x92, 0xb1, 0x70, 0x95, 0x95, 0x1c, 0xd4, 0x7d,
-	0x03, 0x0b, 0xe5, 0x92, 0x57, 0x26, 0xf8, 0x7f, 0x68, 0x6d, 0x0c, 0xe5, 0x65, 0x82, 0xb5, 0x88,
-	0xf2, 0xb1, 0x2b, 0x13, 0x71, 0x03, 0x96, 0x37, 0x86, 0x81, 0x8c, 0x46, 0x6c, 0x7f, 0x5b, 0x2f,
-	0xa0, 0x9f, 0x6b, 0x71, 0xe1, 0xbf, 0x0b, 0x4f, 0x5f, 0x99, 0x24, 0x09, 0xe4, 0x72, 0x29, 0xa4,
-	0x37, 0x61, 0xbb, 0x65, 0x7f, 0x63, 0x71, 0x8f, 0xd9, 0xe3, 0x7b, 0x6c, 0x2a, 0x73, 0x4d, 0x6e,
-	0x6d, 0xbd, 0xd6, 0x93, 0xf3, 0x9b, 0x6e, 0x33, 0x58, 0x3a, 0x3c, 0xea, 0xfc, 0xf5, 0xfd, 0xa8,
-	0x63, 0x1c, 0x1e, 0x77, 0x8c, 0x2f, 0xc7, 0x1d, 0xe3, 0xdb, 0x71, 0xc7, 0x78, 0x35, 0x15, 0x85,
-	0xee, 0xb0, 0x86, 0x9f, 0xe0, 0xf5, 0x1f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xc7, 0x4a, 0x4c, 0xd0,
-	0xcd, 0x07, 0x00, 0x00,
+	// 761 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x56, 0xcf, 0x6e, 0xd3, 0x4e,
+	0x10, 0xfe, 0x39, 0x69, 0xf2, 0x4b, 0x26, 0x6d, 0xd3, 0x6e, 0x92, 0xd6, 0x2d, 0x52, 0x9c, 0x1a,
+	0x21, 0x05, 0x04, 0x29, 0xa2, 0x12, 0x12, 0x02, 0x81, 0x9a, 0x22, 0x95, 0x1e, 0x10, 0xb0, 0xad,
+	0x38, 0x94, 0x3f, 0x96, 0x63, 0x6f, 0xdc, 0x95, 0x1a, 0xaf, 0xb1, 0xb7, 0x48, 0xbc, 0x08, 0x2f,
+	0xc1, 0x8b, 0x54, 0x9c, 0x38, 0x70, 0xb6, 0x68, 0x4f, 0xc8, 0x4f, 0x81, 0xbc, 0x4e, 0xdb, 0x8d,
+	0xed, 0x52, 0x09, 0x05, 0x89, 0x53, 0x33, 0xf3, 0xcd, 0x8c, 0xbf, 0x19, 0xcf, 0x37, 0x35, 0x20,
+	0xee, 0x9b, 0x6e, 0x60, 0x5a, 0x9c, 0x32, 0x37, 0xe8, 0x79, 0x3e, 0xe3, 0x0c, 0xcd, 0x30, 0xcb,
+	0xf3, 0x56, 0xef, 0x38, 0x94, 0x1f, 0x1c, 0x0d, 0x7a, 0x16, 0x1b, 0xad, 0x3b, 0xcc, 0x61, 0xeb,
+	0x02, 0x1c, 0x1c, 0x0d, 0x85, 0x25, 0x0c, 0xf1, 0x2b, 0x49, 0xd2, 0xbf, 0xce, 0x40, 0x6d, 0xef,
+	0xa2, 0x16, 0x5a, 0x82, 0x02, 0xb5, 0x55, 0xa5, 0xa3, 0x74, 0x4b, 0xfd, 0x72, 0x14, 0x6a, 0x05,
+	0x6a, 0xe3, 0x02, 0xb5, 0xd1, 0x43, 0xa8, 0x5b, 0x07, 0xa6, 0xef, 0x10, 0xc3, 0x63, 0xd4, 0xe5,
+	0x06, 0xb5, 0xd5, 0x82, 0x08, 0x6a, 0x44, 0xa1, 0x96, 0x86, 0xf0, 0x5c, 0xe2, 0x78, 0x19, 0xdb,
+	0x3b, 0x36, 0xda, 0x80, 0x59, 0x8b, 0xb9, 0x2e, 0xb1, 0x38, 0xf3, 0xe3, 0xcc, 0xa2, 0xc8, 0x5c,
+	0x88, 0x42, 0x6d, 0xc2, 0x8f, 0x6b, 0xe7, 0xd6, 0x8e, 0x8d, 0xd6, 0xa0, 0x4c, 0x6d, 0x83, 0x9b,
+	0x8e, 0x3a, 0xd3, 0x51, 0xba, 0xd5, 0x3e, 0x44, 0xa1, 0x36, 0xf6, 0xe0, 0x12, 0xb5, 0xf7, 0x4c,
+	0x07, 0x69, 0x50, 0x0a, 0xb8, 0xc9, 0x89, 0x5a, 0x12, 0x11, 0xd5, 0x28, 0xd4, 0x12, 0x07, 0x4e,
+	0xfe, 0xa0, 0x27, 0xb0, 0xe0, 0x93, 0x11, 0xe3, 0xc4, 0xa0, 0x2e, 0xe5, 0xd4, 0xe4, 0xc4, 0x56,
+	0xcb, 0x1d, 0xa5, 0x5b, 0xe9, 0x37, 0xa3, 0x50, 0xcb, 0x60, 0xb8, 0x9e, 0x78, 0x76, 0xce, 0x1c,
+	0xe8, 0x11, 0xd4, 0x03, 0x6e, 0xfa, 0xdc, 0xe0, 0x74, 0x44, 0x02, 0x6e, 0x8e, 0x3c, 0xf5, 0x7f,
+	0xf1, 0x2c, 0xd1, 0x76, 0x0a, 0xc2, 0xf3, 0xc2, 0xb1, 0x77, 0x66, 0xa3, 0x07, 0x30, 0x1f, 0x70,
+	0xe6, 0x49, 0xc9, 0x15, 0x91, 0x8c, 0xa2, 0x50, 0x4b, 0x21, 0x78, 0x2e, 0xb6, 0x2f, 0x52, 0x37,
+	0x61, 0x31, 0xa9, 0x3e, 0x22, 0x9c, 0xf8, 0xc6, 0x47, 0xf3, 0xf0, 0x88, 0xa8, 0x55, 0x31, 0xb7,
+	0x56, 0x14, 0x6a, 0x59, 0x10, 0x27, 0x6c, 0x9e, 0xc7, 0x9e, 0xd7, 0xb1, 0x03, 0x3d, 0x86, 0x05,
+	0xf1, 0x0c, 0xb9, 0x02, 0x88, 0x0a, 0xa2, 0xf9, 0x34, 0x86, 0x05, 0x23, 0x29, 0xff, 0x2e, 0xd4,
+	0x44, 0x8c, 0x4f, 0xcc, 0x80, 0xb9, 0x6a, 0x4d, 0x50, 0xaf, 0x47, 0xa1, 0x26, 0xbb, 0x31, 0xc4,
+	0x06, 0x16, 0xbf, 0xf5, 0xcf, 0x0a, 0xa8, 0xdb, 0x84, 0xbf, 0x70, 0x1d, 0x46, 0x5d, 0x47, 0x5a,
+	0x2b, 0x4c, 0x3e, 0x20, 0x0d, 0x6a, 0xc4, 0xe5, 0x94, 0x7f, 0x32, 0x2c, 0x66, 0x13, 0xb1, 0x62,
+	0x55, 0x0c, 0x89, 0x6b, 0x8b, 0xd9, 0x04, 0xdd, 0x87, 0xe5, 0xd4, 0x1e, 0xc5, 0xe0, 0x90, 0x12,
+	0x5f, 0xac, 0x5a, 0x15, 0xb7, 0x26, 0xb6, 0xea, 0x0c, 0x44, 0x6b, 0x79, 0xdb, 0x35, 0xb1, 0x4b,
+	0xfa, 0x17, 0x05, 0x56, 0x2e, 0x21, 0x16, 0x78, 0xe8, 0x19, 0x34, 0x58, 0x82, 0x18, 0x92, 0xac,
+	0x04, 0xc3, 0x4a, 0x7f, 0x39, 0x0a, 0xb5, 0x3c, 0x18, 0x23, 0x96, 0xa9, 0x86, 0x9e, 0x42, 0x4d,
+	0xae, 0x10, 0xd3, 0xae, 0xdd, 0x5b, 0xec, 0xc5, 0xc2, 0xec, 0x49, 0x71, 0xc9, 0x14, 0xe5, 0x62,
+	0xb2, 0xa1, 0x7f, 0x57, 0xa0, 0xb9, 0xe5, 0x13, 0x93, 0x93, 0x7f, 0x67, 0x84, 0xe8, 0x66, 0x8e,
+	0x94, 0x62, 0x61, 0x56, 0xb2, 0xa2, 0x69, 0x9d, 0x2b, 0x57, 0xe8, 0x72, 0xac, 0x56, 0xfd, 0x1d,
+	0xb4, 0x72, 0xba, 0x0a, 0xbc, 0xf4, 0xd4, 0x94, 0x3f, 0x9b, 0xda, 0x2b, 0x68, 0xec, 0x0a, 0xf9,
+	0x4d, 0xce, 0x6c, 0xfe, 0xe2, 0xa0, 0x89, 0x43, 0x76, 0x2b, 0x4f, 0x58, 0xe2, 0x94, 0x65, 0x14,
+	0xa4, 0xbf, 0x85, 0x66, 0xb6, 0xe4, 0xd4, 0x08, 0xdf, 0x80, 0xc6, 0xe6, 0x80, 0x5d, 0x45, 0x38,
+	0x26, 0x91, 0x0d, 0x9b, 0x1a, 0x89, 0xdb, 0xb0, 0xba, 0x39, 0x70, 0x99, 0x3f, 0x32, 0x0f, 0x77,
+	0xe3, 0x03, 0xf4, 0x7b, 0x2e, 0x16, 0x5c, 0xbb, 0x34, 0x7a, 0x6a, 0x94, 0x18, 0xa0, 0xab, 0xa9,
+	0xa0, 0x6e, 0xce, 0x75, 0x4b, 0x5e, 0x63, 0xfa, 0x8e, 0x69, 0x93, 0x77, 0xac, 0x98, 0xa8, 0x46,
+	0x3a, 0x5b, 0x6f, 0xe2, 0xcd, 0xf9, 0x5b, 0xdd, 0xf4, 0x01, 0x6d, 0x13, 0xf9, 0xe5, 0x05, 0x71,
+	0x37, 0x4d, 0x28, 0x1d, 0xd2, 0x11, 0xe5, 0xe3, 0x86, 0x12, 0x03, 0x2d, 0x41, 0x99, 0x0d, 0x87,
+	0x01, 0xe1, 0xe3, 0x4e, 0xc6, 0x96, 0xfe, 0x1e, 0x1a, 0x99, 0x1a, 0x81, 0x87, 0xb6, 0x61, 0x56,
+	0xfe, 0x0c, 0x50, 0x95, 0x4e, 0x31, 0x9f, 0xa1, 0xf8, 0x4f, 0x2b, 0x87, 0xe2, 0x09, 0x4b, 0xbf,
+	0x0e, 0x8b, 0x93, 0xf5, 0xf3, 0xde, 0xfd, 0x7e, 0xba, 0x91, 0xe9, 0x0d, 0xa9, 0xbf, 0x72, 0x7c,
+	0xd2, 0xfe, 0xef, 0xe7, 0x49, 0x5b, 0x39, 0x3e, 0x6d, 0x2b, 0xdf, 0x4e, 0xdb, 0xca, 0x8f, 0xd3,
+	0xb6, 0xb2, 0x5f, 0xf4, 0x3d, 0x6b, 0x50, 0x16, 0xdf, 0x29, 0x1b, 0xbf, 0x02, 0x00, 0x00, 0xff,
+	0xff, 0xc3, 0xf2, 0x32, 0xbe, 0xf2, 0x08, 0x00, 0x00,
 }
 
 type TransactionFace interface {
@@ -1045,6 +1214,104 @@ func (this *StopTransactionResp) GetTransaction() *Transaction {
 
 func NewStopTransactionRespFromFace(that StopTransactionRespFace) *StopTransactionResp {
 	this := &StopTransactionResp{}
+	this.Transaction = that.GetTransaction()
+	return this
+}
+
+type GetTransactionsReqFace interface {
+	Proto() github_com_gogo_protobuf_proto.Message
+	GetLimit() int32
+	GetOffset() int32
+}
+
+func (this *GetTransactionsReq) Proto() github_com_gogo_protobuf_proto.Message {
+	return this
+}
+
+func (this *GetTransactionsReq) TestProto() github_com_gogo_protobuf_proto.Message {
+	return NewGetTransactionsReqFromFace(this)
+}
+
+func (this *GetTransactionsReq) GetLimit() int32 {
+	return this.Limit
+}
+
+func (this *GetTransactionsReq) GetOffset() int32 {
+	return this.Offset
+}
+
+func NewGetTransactionsReqFromFace(that GetTransactionsReqFace) *GetTransactionsReq {
+	this := &GetTransactionsReq{}
+	this.Limit = that.GetLimit()
+	this.Offset = that.GetOffset()
+	return this
+}
+
+type GetTransactionsRespFace interface {
+	Proto() github_com_gogo_protobuf_proto.Message
+	GetTransactions() []*Transaction
+}
+
+func (this *GetTransactionsResp) Proto() github_com_gogo_protobuf_proto.Message {
+	return this
+}
+
+func (this *GetTransactionsResp) TestProto() github_com_gogo_protobuf_proto.Message {
+	return NewGetTransactionsRespFromFace(this)
+}
+
+func (this *GetTransactionsResp) GetTransactions() []*Transaction {
+	return this.Transactions
+}
+
+func NewGetTransactionsRespFromFace(that GetTransactionsRespFace) *GetTransactionsResp {
+	this := &GetTransactionsResp{}
+	this.Transactions = that.GetTransactions()
+	return this
+}
+
+type GetTransactionReqFace interface {
+	Proto() github_com_gogo_protobuf_proto.Message
+	GetId() int32
+}
+
+func (this *GetTransactionReq) Proto() github_com_gogo_protobuf_proto.Message {
+	return this
+}
+
+func (this *GetTransactionReq) TestProto() github_com_gogo_protobuf_proto.Message {
+	return NewGetTransactionReqFromFace(this)
+}
+
+func (this *GetTransactionReq) GetId() int32 {
+	return this.Id
+}
+
+func NewGetTransactionReqFromFace(that GetTransactionReqFace) *GetTransactionReq {
+	this := &GetTransactionReq{}
+	this.Id = that.GetId()
+	return this
+}
+
+type GetTransactionRespFace interface {
+	Proto() github_com_gogo_protobuf_proto.Message
+	GetTransaction() *Transaction
+}
+
+func (this *GetTransactionResp) Proto() github_com_gogo_protobuf_proto.Message {
+	return this
+}
+
+func (this *GetTransactionResp) TestProto() github_com_gogo_protobuf_proto.Message {
+	return NewGetTransactionRespFromFace(this)
+}
+
+func (this *GetTransactionResp) GetTransaction() *Transaction {
+	return this.Transaction
+}
+
+func NewGetTransactionRespFromFace(that GetTransactionRespFace) *GetTransactionResp {
+	this := &GetTransactionResp{}
 	this.Transaction = that.GetTransaction()
 	return this
 }
@@ -1644,6 +1911,155 @@ func (m *StopTransactionResp) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *GetTransactionsReq) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTransactionsReq) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTransactionsReq) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Offset != 0 {
+		i = encodeVarintTransactions(dAtA, i, uint64(m.Offset))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.Limit != 0 {
+		i = encodeVarintTransactions(dAtA, i, uint64(m.Limit))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTransactionsResp) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTransactionsResp) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTransactionsResp) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Transactions) > 0 {
+		for iNdEx := len(m.Transactions) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Transactions[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintTransactions(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTransactionReq) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTransactionReq) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTransactionReq) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Id != 0 {
+		i = encodeVarintTransactions(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *GetTransactionResp) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *GetTransactionResp) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetTransactionResp) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Transaction != nil {
+		{
+			size, err := m.Transaction.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTransactions(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTransactions(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTransactions(v)
 	base := offset
@@ -1912,6 +2328,73 @@ func (m *StopTransactionReq) Size() (n int) {
 }
 
 func (m *StopTransactionResp) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Transaction != nil {
+		l = m.Transaction.Size()
+		n += 1 + l + sovTransactions(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetTransactionsReq) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Limit != 0 {
+		n += 1 + sovTransactions(uint64(m.Limit))
+	}
+	if m.Offset != 0 {
+		n += 1 + sovTransactions(uint64(m.Offset))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetTransactionsResp) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Transactions) > 0 {
+		for _, e := range m.Transactions {
+			l = e.Size()
+			n += 1 + l + sovTransactions(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetTransactionReq) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovTransactions(uint64(m.Id))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *GetTransactionResp) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -3411,6 +3894,337 @@ func (m *StopTransactionResp) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: StopTransactionResp: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Transaction", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTransactions
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Transaction == nil {
+				m.Transaction = &Transaction{}
+			}
+			if err := m.Transaction.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTransactions(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTransactionsReq) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTransactions
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTransactionsReq: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTransactionsReq: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Limit", wireType)
+			}
+			m.Limit = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTransactions
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Limit |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Offset", wireType)
+			}
+			m.Offset = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTransactions
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Offset |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTransactions(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTransactionsResp) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTransactions
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTransactionsResp: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTransactionsResp: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Transactions", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTransactions
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Transactions = append(m.Transactions, &Transaction{})
+			if err := m.Transactions[len(m.Transactions)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTransactions(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTransactionReq) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTransactions
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTransactionReq: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTransactionReq: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTransactions
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTransactions(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTransactions
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *GetTransactionResp) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTransactions
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: GetTransactionResp: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: GetTransactionResp: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

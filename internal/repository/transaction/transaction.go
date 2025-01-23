@@ -15,6 +15,7 @@ type BaseRepo interface {
 	GetAllByChargePointIDStates(ctx context.Context, cpid int32, states []string) ([]models.OcppTransaction, error)
 	GetByChargePointIDConnectorStates(ctx context.Context, cpid int32, cnid int32, states []string) (models.OcppTransaction, error)
 	Update(ctx context.Context, tid int32, fields []string, transaction models.OcppTransaction) (models.OcppTransaction, error)
+	GetAll(ctx context.Context, limit, offset int) ([]models.OcppTransaction, error)
 }
 
 type baseRepo struct {
@@ -55,7 +56,7 @@ func (repo baseRepo) GetAllByChargePointID(ctx context.Context, cpid int32) ([]m
 
 	err := repo.db.Table("bb3.ocpp_transaction").
 		Where("charge_point_id = ?", cpid).
-		Find(ts).
+		Find(&ts).
 		Error
 
 	return ts, err
@@ -108,4 +109,20 @@ func (repo baseRepo) Update(ctx context.Context, tid int32, fields []string, t m
 	}
 
 	return to, nil
+}
+
+func (repo baseRepo) GetAll(ctx context.Context, limit, offset int) ([]models.OcppTransaction, error) {
+	var transactions []models.OcppTransaction
+
+	err := repo.db.Table("bb3.ocpp_transaction").
+		Limit(limit).
+		Offset(offset).
+		Find(&transactions).
+		Error
+
+	if err != nil {
+		return nil, err
+	}
+
+	return transactions, nil
 }

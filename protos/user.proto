@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package ocpp;
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+option go_package = "rpc";
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+option (gogoproto.goproto_getters_all) = false;
+option (gogoproto.face_all) = true;
+
+
+message User {
+    int32 id = 1 [(gogoproto.jsontag) = "id"];
+    string user_name = 2 [(gogoproto.jsontag) = "user_name"];
+    string email = 3 [(gogoproto.jsontag) = "email"];
+    string password_hash = 4 [(gogoproto.jsontag) = "password_hash"];
+}
+
+message UserOut {
+    int32 id = 1 [(gogoproto.jsontag) = "id"];
+    string user_name = 2 [(gogoproto.jsontag) = "user_name"];
+    string email = 3 [(gogoproto.jsontag) = "email"];
+    bool is_admin = 4 [(gogoproto.jsontag) = "is_admin"];
+}
+
+message RegisterUserReq {
+    string username = 1 [(gogoproto.jsontag) = "username"];
+    string email = 2[(gogoproto.jsontag) = "email"];
+    string password = 3[(gogoproto.jsontag) = "password"];
+}
+
+message RegisterUserResp {
+    string api_key = 1 [(gogoproto.jsontag) = "api_key"];
+}
+
+message VerifyUserReq {
+    string api_key = 1 [(gogoproto.jsontag) = "api_key"];
+}
+
+message VerifyUserResp {
+    UserOut user = 1 [(gogoproto.jsontag) = "user"];
+}
+
+message LoginReq {
+    string username = 1 [(gogoproto.jsontag) = "username"];
+    string password = 2 [(gogoproto.jsontag) = "password"];
+}
+
+message LoginResp {
+    UserOut user = 1 [(gogoproto.jsontag) = "user"];
+}

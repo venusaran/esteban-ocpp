@@ -245,3 +245,93 @@ func (srv Service) StopTransaction(ctx context.Context, req *rpc.StopTransaction
 
 	return res, err
 }
+
+func (srv Service) GetTransactions(ctx context.Context, req *rpc.GetTransactionsReq) (resp *rpc.GetTransactionsResp, err error) {
+	respTxs := []*rpc.Transaction{}
+
+	// get transactions
+	txs, err := srv.transaction.GetAll(ctx, int(req.Limit), int(req.Offset))
+	if err != nil {
+		return nil, err
+	}
+
+	for _, tx := range txs {
+		t := rpc.Transaction{
+			Id:              tx.ID,
+			ChargePointId:   tx.ChargePointID,
+			ConnectorId:     tx.ConnectorID,
+			IdTag:           tx.IDTag,
+			State:           tx.State,
+			RemoteInitiated: tx.RemoteInitiated,
+			StartMeterValue: tx.StartMeterValue,
+			StopMeterValue:  tx.StopMeterValue,
+			StartTimestamp:  tx.StartTimestamp.Local().Format("2006-01-02 15:04:05"),
+			StopTimestamp:   tx.StopTimestamp.Local().Format("2006-01-02 15:04:05"),
+			StopReason:      tx.StopReason,
+		}
+		respTxs = append(respTxs, &t)
+	}
+
+	resp = &rpc.GetTransactionsResp{
+		Transactions: respTxs,
+	}
+
+	return resp, nil
+}
+
+func (srv Service) GetSingleTransaction(ctx context.Context, req *rpc.GetTransactionReq) (resp *rpc.GetTransactionResp, err error) {
+
+	// get transactions
+	tx, err := srv.transaction.GetByID(ctx, req.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	t := rpc.Transaction{
+		Id:              tx.ID,
+		ChargePointId:   tx.ChargePointID,
+		ConnectorId:     tx.ConnectorID,
+		IdTag:           tx.IDTag,
+		State:           tx.State,
+		RemoteInitiated: tx.RemoteInitiated,
+		StartMeterValue: tx.StartMeterValue,
+		StopMeterValue:  tx.StopMeterValue,
+		StartTimestamp:  tx.StartTimestamp.Local().Format("2006-01-02 15:04:05"),
+		StopTimestamp:   tx.StopTimestamp.Local().Format("2006-01-02 15:04:05"),
+		StopReason:      tx.StopReason,
+	}
+
+	resp = &rpc.GetTransactionResp{
+		Transaction: &t,
+	}
+
+	return resp, nil
+}
+
+func (srv Service) GetChargePointTransactions(ctx context.Context, chargePointID int32) ([]*rpc.Transaction, error) {
+	// get transactions
+	txs, err := srv.transaction.GetAllByChargePointID(ctx, chargePointID)
+	if err != nil {
+		return nil, err
+	}
+
+	rx := []*rpc.Transaction{}
+	for _, tx := range txs {
+		t := rpc.Transaction{
+			Id:              tx.ID,
+			ChargePointId:   tx.ChargePointID,
+			ConnectorId:     tx.ConnectorID,
+			IdTag:           tx.IDTag,
+			State:           tx.State,
+			RemoteInitiated: tx.RemoteInitiated,
+			StartMeterValue: tx.StartMeterValue,
+			StopMeterValue:  tx.StopMeterValue,
+			StartTimestamp:  tx.StartTimestamp.Local().Format("2006-01-02 15:04:05"),
+			StopTimestamp:   tx.StopTimestamp.Local().Format("2006-01-02 15:04:05"),
+			StopReason:      tx.StopReason,
+		}
+		rx = append(rx, &t)
+	}
+
+	return rx, nil
+}

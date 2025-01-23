@@ -19,17 +19,26 @@ type Router struct {
 	ocppWebSocketServer *ocppserver.OCPPWebSocketServer
 	chargepointsAPI     *controller.ChargePointsAPI
 	operationsAPI       *controller.OperationsAPI
+	transactionAPI      *controller.TransactionAPI
+	userAPI             *controller.UserAPI
+	userTxAPI           *controller.UserTxAPI
 }
 
 func NewRouter(
 	s *ocppserver.OCPPWebSocketServer,
 	ca *controller.ChargePointsAPI,
 	oa *controller.OperationsAPI,
+	ta *controller.TransactionAPI,
+	ua *controller.UserAPI,
+	uta *controller.UserTxAPI,
 ) (rt *Router) {
 	return &Router{
 		ocppWebSocketServer: s,
 		chargepointsAPI:     ca,
 		operationsAPI:       oa,
+		transactionAPI:      ta,
+		userAPI:             ua,
+		userTxAPI:           uta,
 	}
 }
 
@@ -68,8 +77,25 @@ func (rt *Router) Apply(r *gin.Engine) *gin.Engine {
 	rg.POST("/operations/remote-start-transaction", rt.operationsAPI.RemoteStartTransaction)
 	rg.POST("/operations/remote-stop-transaction", rt.operationsAPI.RemoteStopTransaction)
 
+	// charge point apis
+	rg.GET("/charge-points/:entityCode", rt.chargepointsAPI.GetAllChargePoints)
 	rg.GET("/charge-points/:entityCode/:chargePointIdentifier", rt.chargepointsAPI.GetChargePoint)
 	rg.GET("/charge-points/:entityCode/:chargePointIdentifier/status", rt.chargepointsAPI.GetChargePointConnectorStatus)
+
+	// transaction data api
+	rg.GET("/transactions", rt.transactionAPI.GetAllTransactions)
+	rg.GET("/transactions/cp/:charge_point_id", rt.transactionAPI.GetChargePointTransactions)
+	rg.GET("/transactions/:id", rt.transactionAPI.GetSingleTransaction)
+
+	// transaction data api
+	rg.POST("/user/register", rt.userAPI.RegisterUser)
+	rg.POST("/user/login", rt.userAPI.LoginUser)
+	rg.POST("/user/verify", rt.userAPI.VerifyUser)
+
+	// user transaction data api
+	rg.POST("/user/transactions/create", rt.userTxAPI.CreateUserTx)
+	rg.POST("/user/transactions/read", rt.userTxAPI.GetAllUserTxs)
+	rg.PUT("/user/transactions/update", rt.userTxAPI.UpdateUserTx)
 
 	return r
 }

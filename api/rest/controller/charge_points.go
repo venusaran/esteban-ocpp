@@ -107,3 +107,32 @@ func (api *ChargePointsAPI) GetChargePointConnectorStatus(c *gin.Context) {
 		"data":    res,
 	})
 }
+
+// GetAllChargePoints gets all the charge point
+func (api *ChargePointsAPI) GetAllChargePoints(c *gin.Context) {
+	ctx := context.Background()
+	ctx = context.WithValue(ctx, constants.CtxKey("gin"), c)
+
+	// get the entity code
+	entityCode := c.Param("entityCode")
+
+	req := &rpc.GetChargePointsReq{
+		EntityCode: entityCode,
+	}
+
+	res, err := api.chargepointService.GetChargePoints(ctx, req)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"status":  http.StatusBadRequest,
+			"message": err.Error(),
+			"data":    nil,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"status":  http.StatusOK,
+		"message": "Success",
+		"data":    res.ChargePoints,
+	})
+}
